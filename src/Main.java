@@ -1,15 +1,24 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        File file = new File("C:\\Users\\HP\\Downloads\\TestExercice3.txt");
+        int total = 0;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        try  {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String ligne = scanner.nextLine().trim(); // Supprime les espaces en début/fin
+                if (!ligne.isEmpty()) { // Ignore les lignes vides
+                    String[] words = ligne.split(" "); // Gère les espaces multiples
+                    total += words.length;
+                }
+            }
+            System.out.println("Total des mots: " + total);
+        } catch (FileNotFoundException e) {
+            System.err.println("Fichier non trouvé : " + e.getMessage());
         }
     }
 }
