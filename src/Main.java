@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File("C:\\Users\\HP\\Downloads\\TestExercice3.txt");
+        File file = new File("TestExercice3.txt");
         int total = 0;
 
         try  {
